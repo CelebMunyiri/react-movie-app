@@ -2,15 +2,15 @@ import {useState, useEffect} from "react";
 import './App.css'
 import searchIcon from './search.svg'
 import MovieCard from "./MovieCard";
-const API_URL=' http://www.omdbapi.com?apikey=a414f70a'
+const API_URL='https://www.omdpapi.com/?api_key=1788a673'
 //a414f70a
-const movie1={
+/*const movie1={
     'Title':'Amazing Spiderman Syndrome',
     'Year':'2012',
     'imdbID':'tt2586634',
     'Type':'movie',
     'Poster':'N/A'
-}
+}*/
 
 const App=()=>{
     const [movies,setMovies]=useState([])
@@ -24,8 +24,8 @@ setMovies(data.Search);
 //console.log(data.Search);
     }
     useEffect(()=>{
-searchMovies('Spiderman');
-    },[]);
+searchMovies({searchTerm});
+    },);
     return(
         <div className="App">
             <h1>CELEBMunyiri MOVIES</h1>
@@ -39,7 +39,7 @@ searchMovies('Spiderman');
             <img
             src={searchIcon}
             alt="search"
-            onClick={()=>searchMovies(searchTerm)}
+            onClick={()=>searchMovies('')}
 
             />
             </div>
